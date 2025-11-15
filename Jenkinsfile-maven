@@ -25,6 +25,16 @@ pipeline{
             }
         }
 
+        stage('Build'){
+            steps{
+
+                sh'''
+                mvn -B clean 
+                echo "Maven application built"
+                '''
+            }
+        }
+
         stage('Archive'){
 
             steps{
