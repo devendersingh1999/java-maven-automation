@@ -33,4 +33,15 @@ pipeline{
             }
         }
     }
+
+
+    
+    post {
+        success {
+            echo "Pipeline SUCCESS for ${env.BRANCH_NAME}"
+        }
+        failure {
+            echo "Pipeline FAILED for ${env.BRANCH_NAME}"
+        }
+    }
 }
