@@ -25,6 +25,16 @@ pipeline{
             }
         }
 
+        stage('Build'){
+            steps{
+
+                sh'''
+                mvn -B clean 
+                echo "Maven application built"
+                '''
+            }
+        }
+
         stage('Archive'){
 
             steps{
@@ -33,6 +43,9 @@ pipeline{
             }
         }
     }
+
+
+    
     post {
         success {
             echo "Pipeline SUCCESS for ${env.BRANCH_NAME}"
@@ -41,4 +54,4 @@ pipeline{
             echo "Pipeline FAILED for ${env.BRANCH_NAME}"
         }
     }
-}
+}  that was failling becacue i didn't added the build stage
